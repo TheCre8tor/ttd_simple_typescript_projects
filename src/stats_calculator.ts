@@ -28,4 +28,8 @@ export class StatsCalculator {
 
     return max;
   }
+
+  numberOfElements(): number {
+    return this.list.length;
+  }
 }
