@@ -23,4 +23,8 @@ describe('Stats Calculator', () => {
   test('should be able to determine the number of elements in the sequence', () => {
     expect(statsCalculator.numberOfElements()).toBe<number>(6);
   });
+
+  test('should be able to determine the average value of all items in the list', () => {
+    expect(statsCalculator.averageValue()).toBe<number>(18.666666666667);
+  });
 });

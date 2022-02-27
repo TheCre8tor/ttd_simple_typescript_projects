@@ -32,4 +32,17 @@ export class StatsCalculator {
   numberOfElements(): number {
     return this.list.length;
   }
+
+  averageValue(): number {
+    let value = 0;
+
+    for (let i = 0; i < this.list.length; i++) {
+      value += this.list[i];
+    }
+
+    const average = value / this.numberOfElements();
+    const result = average.toExponential(13);
+
+    return parseFloat(result);
+  }
 }
