@@ -10,21 +10,27 @@ describe('Passsword Validator', () => {
   });
 
   test('should detect if password is between 5 and 15 characters long', () => {
-    expect(passwordValidator.validate(password)).toMatchObject({
+    const result = passwordValidator.validate(password);
+
+    expect(result).toMatchObject({
       isValid: true,
       errors: [],
     });
   });
 
   test('should detect if password contains at least one digit', () => {
-    expect(passwordValidator.validate(password)).toMatchObject({
+    const result = passwordValidator.validate(password);
+
+    expect(result).toMatchObject({
       isValid: true,
       errors: [],
     });
   });
 
   test('should detect if password contains at least one upper case letter', () => {
-    expect(passwordValidator.validate(password)).toMatchObject({
+    const result = passwordValidator.validate(password);
+
+    expect(result).toMatchObject({
       isValid: true,
       errors: [],
     });
