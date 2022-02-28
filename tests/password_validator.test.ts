@@ -8,7 +8,7 @@ describe('Passsword Validator', () => {
       errors: [],
     };
 
-    const password = 'test2You';
+    const password = 'testtouou';
 
     expect(passwordValidator.validate(password)).toMatchObject<ErrorValidator>(
       result,
