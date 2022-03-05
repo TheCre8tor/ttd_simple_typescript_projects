@@ -30,4 +30,16 @@ describe('FizzBuzz', () => {
 
     expect(result).toBe('Buzz');
   });
+
+  it('should return "FizzBuzz" if number is divisible by both 3 and 5', () => {
+    const result = fizzbuzz.run(15);
+
+    expect(result).toBe('FizzBuzz');
+  });
+
+  it('should return inputted number as string if input is not divisible by 3 and 5', () => {
+    const result = fizzbuzz.run(17);
+
+    expect(result).toBe('17');
+  });
 });
