@@ -4,6 +4,6 @@ export class FizzBuzzTPP {
       throw new Error();
     }
 
-    return 'Fizz';
+    return input % 3 === 0 ? 'Fizz' : 'Buzz';
   };
 }

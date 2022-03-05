@@ -24,4 +24,10 @@ describe('FizzBuzz', () => {
 
     expect(result).toBe('Fizz');
   });
+
+  it('should return "Buzz" if number is divisible by 5', () => {
+    const result = fizzbuzz.run(10);
+
+    expect(result).toBe('Buzz');
+  });
 });
