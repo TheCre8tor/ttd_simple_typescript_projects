@@ -1,17 +1,17 @@
 /* 1. ## The most recent added item is first ++
    2. ## The least recently added item is least ++
-   3. Item can be looked up by index, which count from 0
+   3. Item can be looked up by index, which count from 0 ------------
    4. ## Item in the list are unique, so duplicate insertions
       are moved rather than added. ++
    5. ## 1. A recently-used-list is also initially empty. ++
    6. ## Null insertions (empty strings) are not allowed. ++
-   7. ## Size limit is optional. if not supplied, 
-      make 5 as default bound capacity [0 - 4].
+   7. Size limit is optional. if not supplied, 
+      make 5 as default bound capacity [0 - 4]. +++++++++++
    8. If numbers supplied is greater than bound capacity,
       least recently added items should dropped on 
-      overflow.
+      overflow. +++++++++++
    9. While getting items by index, supplied index-value 
-      should be within the bounds of List 
+      should be within the bounds of List  ------------
   10. ## Nagative index value not allowed.
 */
 
