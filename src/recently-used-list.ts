@@ -1,5 +1,6 @@
 export class RecentlyUsedList {
-  private limit: number | undefined = 5;
+  private limit?: number;
+  private bound = 5;
   private list: string[] = [];
 
   constructor(limit?: number) {
@@ -23,15 +24,18 @@ export class RecentlyUsedList {
 
         const item = this.list.splice(findIndex, 1)[0];
         this.list.splice(0, 0, item);
-
-        // for (let i = 0; i < this.list.length; i++) {
-        //   if (this.list[i] === insert) {
-        //     const item = this.list.splice(i, 1)[0];
-        //     this.list.splice(0, 0, item);
-        //   }
-        // }
       } else {
-        this.list.unshift(insert);
+        // 1. Set list bound to 5 if limit is not provided
+
+        // 2. If length is less than 5 && this.limit is undefined
+        // 3. else if length is === 5 && this.limit is undefined
+        // ---- pop the last item and unshift the recent item
+
+        if (this.list.length < this.bound && this.limit === undefined) {
+          this.list.unshift(insert);
+        } else {
+          console.log(insert);
+        }
       }
     }
   }

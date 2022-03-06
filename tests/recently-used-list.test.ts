@@ -1,6 +1,6 @@
 /* 1. ## The most recent added item is first ++
    2. ## The least recently added item is least ++
-   3. Item can be looked up by index, which count from 0 ------------
+   3. ## Item can be looked up by index, which count from 0
    4. ## Item in the list are unique, so duplicate insertions
       are moved rather than added. ++
    5. ## 1. A recently-used-list is also initially empty. ++
@@ -11,7 +11,7 @@
       least recently added items should dropped on 
       overflow. +++++++++++
    9. While getting items by index, supplied index-value 
-      should be within the bounds of List  ------------
+      should be within the bounds of List  ------------>>>>>>>>>>
   10. ## Nagative index value not allowed.
 */
 
@@ -69,4 +69,22 @@ describe('RecentlyUsedList', () => {
 
     expect(result).toEqual<string[]>(['3', '1', '4', '2']);
   });
+
+  it('should make 5 the default bound capacity, if limit is not supplied', () => {
+    recentlyUsedList.setList = '1';
+    recentlyUsedList.setList = '2';
+    recentlyUsedList.setList = '3';
+    recentlyUsedList.setList = '4';
+    recentlyUsedList.setList = '5';
+    recentlyUsedList.setList = '6';
+    recentlyUsedList.setList = '7';
+
+    const result = recentlyUsedList.getList;
+
+    expect(result).toEqual<string[]>(['5', '4', '3', '2', '1']);
+  });
+
+  it.todo(
+    'should drop the last item on overflow, if items is larger than list default bound',
+  );
 });
