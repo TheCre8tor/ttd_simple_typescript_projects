@@ -10,7 +10,8 @@ export class RecentlyUsedList {
     return this.list;
   };
 
-  setList = (insert: string) => {
+  setList = (insert: string): void => {
     if (insert === '') throw new Error('Insertions must contain a valid value');
+    this.list.push(insert);
   };
 }

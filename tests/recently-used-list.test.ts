@@ -22,6 +22,7 @@ describe('RecentlyUsedList', () => {
     const recentlyUsedList = new RecentlyUsedList();
 
     const result = recentlyUsedList.getList();
+    console.log(result);
 
     expect(result).toEqual([]);
   });
@@ -34,7 +35,15 @@ describe('RecentlyUsedList', () => {
     expect(result).toThrow(Error);
   });
 
-  it.todo('should place the most recently added item as first');
+  /* If list is empty push element with the push method else use the shift method */
+  it('should place the most recently added item as first', () => {
+    const recentlyUsedList = new RecentlyUsedList();
+
+    recentlyUsedList.setList('1');
+    const result = recentlyUsedList.getList();
+
+    expect(result).toEqual<string[]>(['1']);
+  });
 
   it.todo('should place the least recently added item as last');
 });
