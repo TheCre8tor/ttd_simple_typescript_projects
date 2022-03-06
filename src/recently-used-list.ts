@@ -6,12 +6,17 @@ export class RecentlyUsedList {
     this.limit = limit;
   }
 
-  getList = (): string[] => {
+  get getList(): string[] {
     return this.list;
-  };
+  }
 
-  setList = (insert: string): void => {
+  set setList(insert: string) {
     if (insert === '') throw new Error('Insertions must contain a valid value');
-    this.list.push(insert);
-  };
+
+    if (this.list.length === 0) {
+      this.list.push(insert);
+    } else {
+      this.list.unshift(insert);
+    }
+  }
 }

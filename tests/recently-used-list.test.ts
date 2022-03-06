@@ -1,7 +1,7 @@
-/* 1. -- The most recent added item is first
-   2. -- The least recently added item is least
+/* 1. ## The most recent added item is first ++
+   2. ## The least recently added item is least ++
    3. Item can be looked up by index, which count from 0
-   4. Item in the list are unique, so duplicate insertions
+   4. -- Item in the list are unique, so duplicate insertions
       are moved rather than added.
    5. ## 1. A recently-used-list is also initially empty. ++
    6. ## Null insertions (empty strings) are not allowed. ++
@@ -18,32 +18,41 @@
 import { RecentlyUsedList } from './../src/recently-used-list';
 
 describe('RecentlyUsedList', () => {
-  it('should be an empty list at it initial state', () => {
-    const recentlyUsedList = new RecentlyUsedList();
+  let recentlyUsedList: RecentlyUsedList;
 
-    const result = recentlyUsedList.getList();
-    console.log(result);
+  beforeEach(() => {
+    recentlyUsedList = new RecentlyUsedList();
+  });
+
+  it('should be an empty list at it initial state', () => {
+    const result = recentlyUsedList.getList;
 
     expect(result).toEqual([]);
   });
 
   it('should throw Error if insertion is an empty string', () => {
-    const recentlyUsedList = new RecentlyUsedList();
-
-    const result = (): void => recentlyUsedList.setList('');
+    const result = (): string => (recentlyUsedList.setList = '');
 
     expect(result).toThrow(Error);
   });
 
-  /* If list is empty push element with the push method else use the shift method */
-  it('should place the most recently added item as first', () => {
-    const recentlyUsedList = new RecentlyUsedList();
+  it('should place the least recently added item as last', () => {
+    recentlyUsedList.setList = '1';
+    recentlyUsedList.setList = '2';
+    recentlyUsedList.setList = '3';
 
-    recentlyUsedList.setList('1');
-    const result = recentlyUsedList.getList();
+    const result = recentlyUsedList.getList;
 
-    expect(result).toEqual<string[]>(['1']);
+    expect(result[2]).toBe('1');
   });
 
-  it.todo('should place the least recently added item as last');
+  it('should place the most recently added item as first', () => {
+    recentlyUsedList.setList = '1';
+    recentlyUsedList.setList = '2';
+    recentlyUsedList.setList = '3';
+
+    const result = recentlyUsedList.getList;
+
+    expect(result).toEqual<string[]>(['3', '2', '1']);
+  });
 });
