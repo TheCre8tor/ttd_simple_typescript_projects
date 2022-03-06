@@ -1,8 +1,8 @@
 /* 1. ## The most recent added item is first ++
    2. ## The least recently added item is least ++
    3. Item can be looked up by index, which count from 0
-   4. -- Item in the list are unique, so duplicate insertions
-      are moved rather than added.
+   4. ## Item in the list are unique, so duplicate insertions
+      are moved rather than added. ++
    5. ## 1. A recently-used-list is also initially empty. ++
    6. ## Null insertions (empty strings) are not allowed. ++
    7. ## Size limit is optional. if not supplied, 
@@ -54,5 +54,19 @@ describe('RecentlyUsedList', () => {
     const result = recentlyUsedList.getList;
 
     expect(result).toEqual<string[]>(['3', '2', '1']);
+  });
+
+  it('should move duplicate insertions rather than added', () => {
+    recentlyUsedList.setList = '1';
+    recentlyUsedList.setList = '2';
+    recentlyUsedList.setList = '3';
+    recentlyUsedList.setList = '2';
+    recentlyUsedList.setList = '4';
+    recentlyUsedList.setList = '1';
+    recentlyUsedList.setList = '3';
+
+    const result = recentlyUsedList.getList;
+
+    expect(result).toEqual<string[]>(['3', '1', '4', '2']);
   });
 });

@@ -16,7 +16,18 @@ export class RecentlyUsedList {
     if (this.list.length === 0) {
       this.list.push(insert);
     } else {
-      this.list.unshift(insert);
+      const checkDuplicate = this.list.find(item => item === insert);
+
+      if (checkDuplicate !== undefined) {
+        for (let i = 0; i < this.list.length; i++) {
+          if (this.list[i] === insert) {
+            const item = this.list.splice(i, 1)[0];
+            this.list.splice(0, 0, item);
+          }
+        }
+      } else {
+        this.list.unshift(insert);
+      }
     }
   }
 }
