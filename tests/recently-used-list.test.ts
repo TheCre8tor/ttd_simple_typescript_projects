@@ -70,7 +70,7 @@ describe('RecentlyUsedList', () => {
     expect(result).toEqual<string[]>(['3', '1', '4', '2']);
   });
 
-  it('should make 5 the default bound capacity, if limit is not supplied', () => {
+  it('should drop the last item on overflow, when items are larger than 5, the default capacity', () => {
     recentlyUsedList.setList = '1';
     recentlyUsedList.setList = '2';
     recentlyUsedList.setList = '3';
@@ -81,10 +81,6 @@ describe('RecentlyUsedList', () => {
 
     const result = recentlyUsedList.getList;
 
-    expect(result).toEqual<string[]>(['5', '4', '3', '2', '1']);
+    expect(result).toEqual<string[]>(['7', '6', '5', '4', '3']);
   });
-
-  it.todo(
-    'should drop the last item on overflow, if items is larger than list default bound',
-  );
 });

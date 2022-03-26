@@ -25,16 +25,16 @@ export class RecentlyUsedList {
         const item = this.list.splice(findIndex, 1)[0];
         this.list.splice(0, 0, item);
       } else {
-        // 1. Set list bound to 5 if limit is not provided
-
-        // 2. If length is less than 5 && this.limit is undefined
-        // 3. else if length is === 5 && this.limit is undefined
-        // ---- pop the last item and unshift the recent item
-
         if (this.list.length < this.bound && this.limit === undefined) {
           this.list.unshift(insert);
+        } else if (
+          this.list.length === this.bound &&
+          this.limit === undefined
+        ) {
+          this.list.pop();
+          this.list.unshift(insert);
         } else {
-          console.log(insert);
+          this.list.unshift(insert);
         }
       }
     }
